@@ -14,6 +14,17 @@ loc@data <- datos2
 spplot(loc,"Casos.En.Miles.",main = "Casos por localidad", ylab = "Casos en miles",col.regions=heat.colors(100,alpha=1,rev=T))
 spplot(loc,"Muertes",main = "Muertes por localidad", col.regions=heat.colors(100,alpha=1,rev=T))
 
+#Gráficos de pastel
+install.packages("lessR")
+library(lessR)
+#Casos por sexo
+ncxs = table(Casos_sexo)
+PieChart(ncxs, hole = 0, main = "Porcentaje de casos por sexo")
+
+#Muertos por sexo
+nmxs = table(Muertes_sexo)
+PieChart(nmxs, hole = 0, main = "Porcentaje de muertes por sexo")
+
 #Muertos por edad y sexo: hombre vs mujer
 hist(ProyectoEdadesMuertos$EDAD_HOMBRE,breaks=10,main="Muertes por sexo",
      xlab="Edad",ylab="Frecuencia",col="#0080ff",alpha=0.5)
