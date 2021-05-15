@@ -14,7 +14,7 @@ loc@data <- datos2
 spplot(loc,"Casos.En.Miles.",main = "Casos por localidad", ylab = "Casos en miles",col.regions=heat.colors(100,alpha=1,rev=T))
 spplot(loc,"Muertes",main = "Muertes por localidad", col.regions=heat.colors(100,alpha=1,rev=T))
 
-#Muertos por sexo: hombre vs mujer
+#Muertos por edad y sexo: hombre vs mujer
 hist(ProyectoEdadesMuertos$EDAD_HOMBRE,breaks=10,main="Muertes por sexo",
      xlab="Edad",ylab="Frecuencia",col="#0080ff",alpha=0.5)
      
@@ -25,9 +25,14 @@ legend(x = "topright", legend = c("Hombre", "Mujer"),
 hist(ProyectoEdadesMuertos$EDAD_MUJER, add=TRUE, breaks=10,main="Muertes por sexo",
      xlab="Edad",ylab="Frecuencia",col=rgb(1,0,0, alpha=0.5))
 
-#pie(MuertosLocalidad$Muertos_Localidad,labels = MuertosLocalidad)
-barplot(MuertosLocalidad$Muertos_Localidad)
+#Muertos por Localidad
 
+##ESPACIO PARA EL CODIGO DE MUERTOS POR LOCALIDAD
+
+
+#Promedio de edad de los muertos por localidad
+
+##ESPACIO PARA EL CODIGO DE PROMEDIO DE EDAD MUERTOS-LOCALIDAD
 
 
 #Tiempo diagnostico por localidad
@@ -44,6 +49,7 @@ grid(nx = NA, ny = NULL, lwd = 1, lty = 1, col = "gray")
                                  #"19: Usme", "20: Fuera de Bogota", "21: Sumapaz"
                                   #),
        #fill = c("#000066"), title = "Id_localidad",cex = 0.7)
+
 
 #Regresion lineal: 
 #Numero de casos (covid-positivo) acumulados por 
