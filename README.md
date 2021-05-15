@@ -1,4 +1,4 @@
-# ProyectoProbabilidad1
+# Proyecto-Probabilidad1
 Proyecto de la asignatura probabilidad y estadística 1
 
 El objetivo de este proyecto es realizar estadistica descriptica de la base de datos recuperada de: 
