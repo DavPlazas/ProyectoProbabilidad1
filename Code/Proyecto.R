@@ -69,11 +69,11 @@ grid(nx = NA, ny = NULL, lwd = 1, lty = 1, col = "gray")
 #Regresion lineal: 
 #Numero de casos (covid-positivo) acumulados por 
 #dias transcurridos desde el primer caso de covid en Bogota
+x <- Casos_acumulados_por_fecha$Dias_Transcurridos
+y <- Casos_acumulados_por_fecha$Casos_acumulados
+plot(x,y,main="Casos acumulados por días transcurridos", 
+     xlab = "Número de días transcurridos", ylab = "Número de casos acumulados")
+mod2 = lm(y~x)
+abline(mod2, col = "red")
 
-x<-prediccioncasos2$Dias_trancurridos
-y<-prediccioncasos2$Cumulative_cases
-plot(x,y,main="scatterplot",xlab="Numero de dias transcurridos",ylab="Numero de casos")
 
-mod2=lm(y~x)
-abline(mod2,col="red",lwd=2)
-summary(mod2)
