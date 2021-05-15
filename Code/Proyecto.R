@@ -53,7 +53,7 @@ text(barp, y - 0.9, labels = y)
 #Tiempo diagnostico por localidad
 
 barp<-barplot(height=TimeD$Tiempo_promedio_d,name=TimeD$id_localidad,col="#cc99ff")
-text(barp, TimeD$Tiempo_promedio_d -0.2, labels = TimeD$Tiempo_promedio_d)
+text(barp+0.05, TimeD$Tiempo_promedio_d -0.1, labels = TimeD$Tiempo_promedio_d)
 grid(nx = NA, ny = NULL, lwd = 1, lty = 1, col = "gray")
 #legend(x = "topleft", legend = c("-1: Sin dato", "1: Usaquen", "2: Engativa",
                                   #"3: Fontibon","4: Kennedy","5: Suba",
