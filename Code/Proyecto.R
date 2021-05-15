@@ -33,7 +33,12 @@ hist(ProyectoEdadesMuertos$EDAD_MUJER, add=TRUE, breaks=10,main="Muertes por sex
 #Promedio de edad de los muertos por localidad
 
 ##ESPACIO PARA EL CODIGO DE PROMEDIO DE EDAD MUERTOS-LOCALIDAD
+x<-promedio_edad_muertos_localidad$ID_LOCALIDAD
+y<-promedio_edad_muertos_localidad$EDAD_PROMEDIO_MUERTOS
 
+barp<-barplot(y, names=x, main = "Promedio de edad de muertos por localidad", xlab="Código Localidad", ylab="Promedio de edad fallecidos", col=rgb(1,0,0))
+
+text(barp, y - 0.9, labels = y)
 
 #Tiempo diagnostico por localidad
 
