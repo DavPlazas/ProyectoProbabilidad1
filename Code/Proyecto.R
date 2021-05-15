@@ -1,3 +1,19 @@
+#Codigo para cargar el shp
+install.packages("rgdal")
+library(rgdal)
+library(sp)
+
+loc <- readOGR(file.choose())
+plot(loc)
+box()
+
+# Código para mapa de calor muertes y casos por localidad.
+datos2 <- read.csv(file.choose(), header=T, sep=";", dec=",", row.names=1) 
+loc@data <- datos2
+
+spplot(loc,"Casos.En.Miles.",main = "Casos por localidad", ylab = "Casos en miles",col.regions=heat.colors(100,alpha=1,rev=T))
+spplot(loc,"Muertes",main = "Muertes por localidad", col.regions=heat.colors(100,alpha=1,rev=T))
+
 #Muertos por sexo: hombre vs mujer
 hist(ProyectoEdadesMuertos$EDAD_HOMBRE,breaks=10,main="Muertes por sexo",
      xlab="Edad",ylab="Frecuencia",col="#0080ff",alpha=0.5)
@@ -24,7 +40,7 @@ grid(nx = NA, ny = NULL, lwd = 1, lty = 1, col = "gray")
                                   #"6: Teusaquillo", "7: Chapinero", "8: Cuidad Bolivar",
                                   #"9: Barrios Unidos","10: Los Martires", "11: La candelaria",
                                  #"12: Rafael Uribe Uribe","13: Puente Arandano","14: Tunjuelito",
-                                 #"15: Bosa","16: San Cristobal", "17: Sante Fe","18: Antonio Nari�o",
+                                 #"15: Bosa","16: San Cristobal", "17: Sante Fe","18: Antonio Nariño",
                                  #"19: Usme", "20: Fuera de Bogota", "21: Sumapaz"
                                   #),
        #fill = c("#000066"), title = "Id_localidad",cex = 0.7)
