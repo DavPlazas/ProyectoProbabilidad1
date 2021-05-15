@@ -17,11 +17,11 @@ spplot(loc,"Muertes",main = "Muertes por localidad", col.regions=heat.colors(100
 #Gráficos de pastel
 install.packages("lessR")
 library(lessR)
-#Casos por sexo
+#Pie Casos por sexo
 ncxs = table(Casos_sexo)
 PieChart(ncxs, hole = 0, main = "Porcentaje de casos por sexo")
 
-#Muertos por sexo
+#Pie Muertos por sexo
 nmxs = table(Muertes_sexo)
 PieChart(nmxs, hole = 0, main = "Porcentaje de muertes por sexo")
 
@@ -36,14 +36,13 @@ legend(x = "topright", legend = c("Hombre", "Mujer"),
 hist(ProyectoEdadesMuertos$EDAD_MUJER, add=TRUE, breaks=10,main="Muertes por sexo",
      xlab="Edad",ylab="Frecuencia",col=rgb(1,0,0, alpha=0.5))
 
-#Muertos por Localidad
-
-##ESPACIO PARA EL CODIGO DE MUERTOS POR LOCALIDAD
-
+#Barplot numero de Muertos por Localidad
+ni = table(Muertes_por_localidad)
+barp2 <- barplot(ni,main="Muertes por localidad", xlab="Código Localidad",ylab="Frecuencia", col="#dd99ff")
+text(barp2, ni - 30, labels = ni)
 
 #Promedio de edad de los muertos por localidad
 
-##ESPACIO PARA EL CODIGO DE PROMEDIO DE EDAD MUERTOS-LOCALIDAD
 x<-promedio_edad_muertos_localidad$ID_LOCALIDAD
 y<-promedio_edad_muertos_localidad$EDAD_PROMEDIO_MUERTOS
 
