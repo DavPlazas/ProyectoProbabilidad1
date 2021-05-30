@@ -155,8 +155,8 @@ T_alpha=qt(alpha/2,lower.tail = FALSE,df=n-2)
 
 x1 <- Edad_y_fallecidos$Edades
 y1 <- Edad_y_fallecidos$Num_muertes
-plot(x1,y1,main="Casos acumulados por días transcurridos", 
-     xlab = "Número de días transcurridos", ylab = "Número de casos acumulados")
+plot(x1,y1,main="Muertes acumuladas por edad", 
+     xlab = "Edad en años", ylab = "Número de muertes acumuladas")
 mod3 = lm(y1~x1)
 
 mod3$coefficients
