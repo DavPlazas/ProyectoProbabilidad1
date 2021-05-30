@@ -1,6 +1,6 @@
 #Codigo para cargar el shp
 
-install.packages("rgdal") #Instalación de paquetes para usar archivos .shp
+install.packages("rgdal") #InstalaciÃ³n de paquetes para usar archivos .shp
 library(rgdal) #Incluir librerias
 library(sp) #Incluir librerias
 
@@ -10,7 +10,7 @@ plot(loc)#Se grafica el mapa
 box() #Se traza un borde para el mapa de calor
 
 
-# Código para mapa de calor muertes y casos por localidad.
+# CÃ³digo para mapa de calor muertes y casos por localidad.
 
 
 datos2 <- read.csv(file.choose(), header=T, sep=";", dec=",", row.names=1) #Se escoge el archivo Numero_de_casos_x_localidad.csv donde se tienen los datos
@@ -20,7 +20,7 @@ spplot(loc,"Casos.En.Miles.",main = "Casos por localidad", ylab = "Casos en mile
 spplot(loc,"Muertes",main = "Muertes por localidad", col.regions=heat.colors(100,alpha=1,rev=T))# Se grafica el mapa de calor de fellecidos por localidad
 
 
-#Gráficos de pastel
+#GrÃ¡ficos de pastel
 
 
 install.packages("lessR") #Instalar paquete para graficas de pastel
@@ -32,7 +32,7 @@ library(lessR) #Llamado a la libreria lessR
 
 
 ncxs = table(Casos_sexo) #Se carga el archivo Casos_sexo.csv a un dataframe
-PieChart(ncxs, hole = 0, main = "Porcentaje de casos por sexo") #Se realiza un gráfico de pastel con la proporción de casos entre mujeres y hombres
+PieChart(ncxs, hole = 0, main = "Porcentaje de casos por sexo") #Se realiza un grÃ¡fico de pastel con la proporciÃ³n de casos entre mujeres y hombres
 
 
 #Pie Muertos por sexo
@@ -40,7 +40,7 @@ PieChart(ncxs, hole = 0, main = "Porcentaje de casos por sexo") #Se realiza un g
 
 
 nmxs = table(Muertes_sexo) #Se carga el archivo Casos_sexo.csv a un dataframe
-PieChart(nmxs, hole = 0, main = "Porcentaje de muertes por sexo") #Se realiza un gráfico de pastel con la proporción de muertes entre mujeres y hombres
+PieChart(nmxs, hole = 0, main = "Porcentaje de muertes por sexo") #Se realiza un grÃ¡fico de pastel con la proporciÃ³n de muertes entre mujeres y hombres
 
 
 #Muertos por edad y sexo: hombre vs mujer
@@ -54,15 +54,15 @@ hist(ProyectoEdadesMuertos$EDAD_MUJER, add=TRUE, breaks=10,main="Muertes por sex
      xlab="Edad",ylab="Frecuencia",col=rgb(1,0,0, alpha=0.5))#Se grafica un histograma de edades de las mujeres fallecidas
 
 legend(x = "topright", legend = c("Hombre", "Mujer"), 
-       fill = c("#0080ff", rgb(1,0,0)), title = "Sexo") #Se crea la convención de la gráfica
+       fill = c("#0080ff", rgb(1,0,0)), title = "Sexo") #Se crea la convenciÃ³n de la grÃ¡fica
 
 
 #Barplot numero de Muertos por Localidad
 #Se importa el archivo Muertes_por_localidad disponible en el GitHub
 
 ni = table(Muertes_por_localidad) #Se carga el archivo Muertes_por_localidad.csv a un dataframe
-barp2 <- barplot(ni,main="Muertes por localidad", xlab="Código Localidad",ylab="Frecuencia", col="#dd99ff") #Se realiza el gráfico de barras con los datos
-text(barp2, ni - 30, labels = ni)#Se añaden los valores numéricos a cada barra
+barp2 <- barplot(ni,main="Muertes por localidad", xlab="CÃ³digo Localidad",ylab="Frecuencia", col="#dd99ff") #Se realiza el grÃ¡fico de barras con los datos
+text(barp2, ni - 30, labels = ni)#Se aÃ±aden los valores numÃ©ricos a cada barra
 
 
 #Promedio de edad de los muertos por localidad
@@ -71,31 +71,31 @@ text(barp2, ni - 30, labels = ni)#Se añaden los valores numéricos a cada barra
 Id_loc<-promedio_edad_muertos_localidad$ID_LOCALIDAD #Se carga el id de las localidades a una variable
 Prom_edad<-promedio_edad_muertos_localidad$EDAD_PROMEDIO_MUERTOS #Se carga el promedio de la edad de los fallecidos de las localidades a una variable
 
-barp<-barplot(Prom_edad, names=Id_loc, main = "Promedio de edad de muertos por localidad", xlab="Código Localidad", ylab="Promedio de edad fallecidos", col=rgb(1,0,0)) #Se crea un gráfico de barras para el promedio de edades de fallecios por cada localidad
+barp<-barplot(Prom_edad, names=Id_loc, main = "Promedio de edad de muertos por localidad", xlab="CÃ³digo Localidad", ylab="Promedio de edad fallecidos", col=rgb(1,0,0)) #Se crea un grÃ¡fico de barras para el promedio de edades de fallecios por cada localidad
 
-text(barp, Prom_edad - 0.9, labels = Prom_edad) #Se añaden los valores numéricos a cada barra
+text(barp, Prom_edad - 0.9, labels = Prom_edad) #Se aÃ±aden los valores numÃ©ricos a cada barra
 
 
 #Tiempo diagnostico por localidad
 #Se importa el archivo TiempoDiagnostico disponible en GitHub
 
 
-barp<-barplot(height=TiempoDiagnostico$Tiempo_promedio_d,name=TiempoDiagnostico$id_localidad,main="Tiempo Promedio Diagnostico por Localidad",xlab="Codigo Localidad",ylab="Dias transcurridos",col="#cc99ff") #Se realiza el gráfico de barras 
-text(barp+0.05, TiempoDiagnostico$Tiempo_promedio_d -0.1, labels = TiempoDiagnostico$Tiempo_promedio_d) #Se añaden los valores numéricos a cada barra
-grid(nx = NA, ny = NULL, lwd = 1, lty = 1, col = "gray") #Se dibujan las rectas horizontales para facilitar la visualización
+barp<-barplot(height=TiempoDiagnostico$Tiempo_promedio_d,name=TiempoDiagnostico$id_localidad,main="Tiempo Promedio Diagnostico por Localidad",xlab="Codigo Localidad",ylab="Dias transcurridos",col="#cc99ff") #Se realiza el grÃ¡fico de barras 
+text(barp+0.05, TiempoDiagnostico$Tiempo_promedio_d -0.1, labels = TiempoDiagnostico$Tiempo_promedio_d) #Se aÃ±aden los valores numÃ©ricos a cada barra
+grid(nx = NA, ny = NULL, lwd = 1, lty = 1, col = "gray") #Se dibujan las rectas horizontales para facilitar la visualizaciÃ³n
 
 
 #Regresion lineal: 
 #Numero de casos (covid-positivo) acumulados por 
-#días transcurridos desde el primer caso de covid en Bogotá
+#dÃ­as transcurridos desde el primer caso de covid en BogotÃ¡
 #Se importa el archivo Casos_acumulados_por_fecha disponible en GitHub
 
 x <- Casos_acumulados_por_fecha$Dias_Transcurridos #Se asigna una variable a los dias transcurridos
 y <- Casos_acumulados_por_fecha$Casos_acumulados #Se asigna una variable al numero de casos acumulados
-plot(x,y,main="Casos acumulados por días transcurridos", 
-     xlab = "Número de días transcurridos", ylab = "Número de casos acumulados") #Se realiza la grafica de dispersión de puntos
-mod2 = lm(y~x) #Se modela una regresión lineal
-abline(mod2, col = "red", lwd = 2) #Se traza la recta del modelo en la gráfica de dispersión
+plot(x,y,main="Casos acumulados por dÃ­as transcurridos", 
+     xlab = "NÃºmero de dÃ­as transcurridos", ylab = "NÃºmero de casos acumulados") #Se realiza la grafica de dispersiÃ³n de puntos
+mod2 = lm(y~x) #Se modela una regresiÃ³n lineal
+abline(mod2, col = "red", lwd = 2) #Se traza la recta del modelo en la grÃ¡fica de dispersiÃ³n
 
 
 xb<-mean(x) #Hallamos la media de los dias transcurridos
@@ -106,13 +106,13 @@ Syy<-sum((y-yb)^2)
 b1<-Sxy/Sxx #Calculamos Beta 1
 b0<-yb-b1*xb #Calculamos Beta 0
 
-r<-b1*sqrt(Sxx/Syy) #correlación
+r<-b1*sqrt(Sxx/Syy) #correlaciÃ³n
 
-rsquared=r^2 #r^2 es el coeficiente de determinación
+rsquared=r^2 #r^2 es el coeficiente de determinaciÃ³n
 #porcentaje de varianza en y causada en x
 
 
-vl_n<-data.frame(x=450) #predicción para el Numero de casos al dia de hoy
+vl_n<-data.frame(x=450) #predicciÃ³n para el Numero de casos al dia de hoy
 predict(mod2,vl_n) #Se predicen los casos acumulados para el dia 450 (31/05/2021)
 
 #intervalo de confianza con predict
@@ -136,8 +136,8 @@ T=(b1 - B1_0)/(S*sqrt(C11)) #Se usa el estimador T, pues la varianza no es conoc
 alpha = 0.05
 T_alpha=qt(alpha/2,lower.tail = FALSE,df=n-2)
 #T=96.61 y T_alpha=1.96 -> rechazamos H_0
-#Debido a que el estimador se encuentra en la región de rechazo, rechazamos la hipótesis nula.
-#Luego, B1 es distinto de 0. Por lo tanto, verificamos que el número de casos acumulados depende del número de días transcuridos.
+#Debido a que el estimador se encuentra en la regiÃ³n de rechazo, rechazamos la hipÃ³tesis nula.
+#Luego, B1 es distinto de 0. Por lo tanto, verificamos que el nÃºmero de casos acumulados depende del nÃºmero de dÃ­as transcuridos.
 
 
 
@@ -148,15 +148,15 @@ T_alpha=qt(alpha/2,lower.tail = FALSE,df=n-2)
 
 
 #Regresion lineal: 
-#Numero de muertes acumuladas por edad en Bogotá
+#Numero de muertes acumuladas por edad en BogotÃ¡
 #Se importa el archivo Edad_y_fallecidos disponible en GitHub
 
 
 
 x1 <- Edad_y_fallecidos$Edades
 y1 <- Edad_y_fallecidos$Num_muertes
-plot(x1,y1,main="Casos acumulados por días transcurridos", 
-     xlab = "Número de días transcurridos", ylab = "Número de casos acumulados")
+plot(x1,y1,main="Casos acumulados por dÃ­as transcurridos", 
+     xlab = "NÃºmero de dÃ­as transcurridos", ylab = "NÃºmero de casos acumulados")
 mod3 = lm(y1~x1)
 
 mod3$coefficients
@@ -193,8 +193,8 @@ T=(b1_n - B1_0)/(S*sqrt(C11))
 alpha = 0.05
 T_alpha=qt(alpha/2,lower.tail = FALSE,df=n1-2)
 #T=5.93 y T_alpha = 1.98
-#Debido a que el estimador se encuentra en la región de rechazo, rechazamos la hipótesis nula.
-#Luego, B1 es distinto de 0. Por lo tanto, verificamos que el número de fallecidos depende de la edad.
+#Debido a que el estimador se encuentra en la regiÃ³n de rechazo, rechazamos la hipÃ³tesis nula.
+#Luego, B1 es distinto de 0. Por lo tanto, verificamos que el nÃºmero de fallecidos depende de la edad.
 
-
+ 
 
